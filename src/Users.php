@@ -1,4 +1,4 @@
-<?php namespace Pinglayson\Users;
+<?php namespace Pinglayson;
   
 class Users{
 
