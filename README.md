@@ -1,5 +1,7 @@
 # service-api
 
+This is a micro service for user accounts.
+
 ## Installation
 
 composer require pinglayson/users

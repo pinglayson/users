@@ -23,7 +23,7 @@ class Users{
    * @param $credentials array['email'=>'email@email.com', password => 'secret' ,'source' => 'web|mobile', locale=>'en|zh']
    */
   public function login($parameters){
-    return $this->postRequest($this->$url.'api/v1/auth/login', $parameters);
+    return $this->postRequest($this->url.'api/v1/auth/login', $parameters);
   }
 
   protected function postRequest($uri, $parameters)
