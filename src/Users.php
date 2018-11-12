@@ -1,5 +1,6 @@
 <?php namespace Pinglayson;
-  
+
+
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 
