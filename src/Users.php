@@ -1,4 +1,4 @@
-<?php namespace Pinglayson\User;
+<?php namespace Pinglayson\Users;
   
 class Users{
   public function index(){
