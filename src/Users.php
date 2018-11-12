@@ -1,9 +1,14 @@
 <?php namespace Pinglayson;
   
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
+
 class Users{
 
-  public function __construct(){
+  private $client;
 
+  public function __construct(){
+    $this->client = new Client();
   }
 
   public function index(){
@@ -16,6 +21,24 @@ class Users{
    * @param $credentials array['email'=>'email@email.com', password => 'secret' ,'source' => 'web|mobile', locale=>'en|zh']
    */
   public function login($credentials){
-    var_dump($credentials);
+    try{
+      $response = $this->client->request('POST', $uri, [
+          'form_params' => $parameters,
+      ]);
+    } catch(ClientException $e) {
+      Log::debug($e);
+      throw $e;
+    }
+    return $this->decodeResponse($response);
   }
+
+  protected function decodeResponse($response)
+  {
+    if (!$response) {
+        return 'Empty or Invalid Response';
+    } else {
+        return json_decode($response->getBody()->getContents());
+    }
+  }
+
 }
